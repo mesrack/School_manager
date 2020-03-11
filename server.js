@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const bcrypt = require('bcrypt')
 
 app.use('/assets', express.static('public'))
 app.set('view-engine', 'ejs')
@@ -20,8 +21,14 @@ app.get('/', (req, res) => {
     res.render('./pages/register.ejs')
 })
 
-.post('/register', (req, res) => {
-
+.post('/register', async (req, res) => {
+    try {
+        const hashedPassword = bcrypt.hash(req.body.password, 10)
+    } catch (error) {
+        
+    }
+    req.body.email
+    req.body.lastname
 })
 
 app.listen(8080)

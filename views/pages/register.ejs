@@ -5,41 +5,43 @@
         <title>Register</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="/assets/semantic/semantic.min.css">
-        <link rel="stylesheet" href="/assets/stylesheet/style.css">
+        <link rel="stylesheet" href="/assets/stylesheets/style.css">
     </head>
 
-    <body style="background-image: url('/assets/res/brown-teddy-bear-on-brown-wooden-bench-outside-207891.jpg');">
-        <div class="ui main container">        
-            <div class="ui middle aligned center aligned grid">
+    <body>       
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+
                 <form action="/register" method="POST" id="form-register" class="ui large form">
                     <div class="ui stacked segment">
-
+    
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
                                 <input type="text" name="lastname" id="lastname" placeholder="Last name">
                             </div>
                         </div>
-
+    
                         <div class="field">
                             <div class="ui left icon input">
-                                <i class="user icon"></i>
+                                <i class="envelope icon"></i>
                                 <input type="email" name="email" id="email" placeholder="email">
                             </div>
                         </div>
-
+    
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
                                 <input type="password" name="password" id="password" placeholder="password">
                             </div>
                         </div>
-
+                        
+                        <button type="submit" class="ui fluid large teal submit icon button">
+                            <i class="icon edit"></i>  Register
+                        </button>
                     </div>
-                    <button type="submit" class="ui grey labeled submit icon button">
-                        <i class="icon edit"></i> Submit
-                    </button>
                 </form>
+
             </div>
         </div>
     </body>
