@@ -12,6 +12,10 @@
         <div class="ui middle aligned center aligned grid">
             <div class="column">
 
+                <% if(message.error) {%>
+                    <%= message.error %>
+                <% } %>
+
                 <form action="/register" method="POST" id="form_login" class="ui large form">
                     <div class="ui stacked segment">
                     
