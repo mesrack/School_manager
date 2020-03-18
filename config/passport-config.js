@@ -98,15 +98,19 @@ function initialize(passport) {
     /********************************************** */
     /*************** Local login ****************** */
     /********************************************** */
-    passport.use('local-login', new LocalStrategy({ usernameField: 'email', passwordField : 'password', passReqToCallBack : true },
-    authenticateUser))
+    passport.use('local-login', new LocalStrategy(
+        { usernameField: 'email', 
+          passwordField : 'password', 
+          passReqToCallBack : true }, authenticateUser))
 
 
     /********************************************** */
     /*************** Local Register *************** */
     /********************************************** */
-    passport.use('local-register', new LocalStrategy({ usernameField: 'email', passwordField : 'password', passReqToCallBack : true },
-    registerUser))
+    passport.use('local-register', new LocalStrategy(
+        { usernameField: 'email', 
+          passwordField : 'password', 
+          passReqToCallBack : true }, registerUser))
 
 
 
