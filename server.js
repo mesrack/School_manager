@@ -1,4 +1,5 @@
 if(process.env.NODE_ENV !== 'production') {
+    console.log("On est en mode dev")
     require('dotenv').config()
 }
 
@@ -50,11 +51,43 @@ app.get('/', (req, res) => {
     res.render('./pages/register.ejs')
 })
 
-.post('/register', passport.authenticate('local-register', {
-    successRedirect: '/',
-    failureMessage: '/register',
-    failureFlash: true
-}))
+
+.post('/register', (req, res) => {
+
+
+    connection.query("SELECT * FROM administrator WHERE admin_email = '" + email + "'", async (err,rows) => {
+        console.log(rows)
+        console.log("above row object")
+
+        if(err) {
+            res.render('./pages/register.ejs', {message : "Search for existing account failed."})
+        }
+         if (rows.length) {
+            res.render('./pages/register.ejs', { message : "Email address already exists."})
+        } else {
+
+            // If there is no user with that email
+            // Create the user
+            const hashedPassword = await bcrypt.hash(password, 10)
+        
+            let insertQuery = "INSERT INTO administrator ( admin_lastname, admin_email, admin_pass, admin_teachernumber) \
+                               VALUES ('" + req.body.name + "', \
+                                       '" + req.body.email +"', \
+                                       '" + hashedPassword +"', \
+                                       '" +  req.body.teachernumber + "')";
+
+            connection.query(insertQuery, (err,rows) => {
+
+                if(err) {
+                    res.render('./pages/register', {message : 'Account registration failed.'})
+                } else {
+                    res.render('./pages/login')
+                }
+            });	
+        }
+    })
+
+})
 
 
 app.listen(8080)
