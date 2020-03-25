@@ -33,7 +33,7 @@ app.set('view-engine', 'ejs')
 /******************* Roads ******************** */
 
 app.get('/', (req, res) => {
-    res.render('./pages/index.ejs')
+    res.render('./pages/index.ejs', {username : "Loïc"})
 })
 
 
@@ -87,6 +87,10 @@ app.get('/', (req, res) => {
         }
     })
 
+})
+
+.get('/support', (req, res) => {
+    res.render('./pages/support.ejs', {username : "Loïc"})
 })
 
 

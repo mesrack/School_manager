@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>School Management</title>
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+
+        <div id="wrap">
+            <header>
+                <div class="inner-header">
+                    <div class="ui fixed inverted menu">
+                        <div class="header item">
+                            <span id="school-name">Louis Pasteur</span>
+                        </div>
+                        <div class="right menu">
+                            <a class="item active" class="item">Home</a>
+                            <a class="item" class="item">Support</a>
+                            <div class="item">
+                                <div class="ui transparent inverted icon input">
+                                    <i class="search icon"></i>
+                                    <input type="text" id="searchBar" placeholder="Search">
+                                </div>
+                            </div>
+                            <div class="ui dropdown item" id="dropdown" tabindex="0">
+                                <i class="user icon"></i>
+                                <span id="username"> <%= username%> Account </span>
+                                <i class="dropdown icon"></i>
+                                <div class="menu transition hidden">
+                                    <div class="item">
+                                        <a href="/profile">View Profile</a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="/logout"></a>Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+        </div>

@@ -20,7 +20,6 @@ class Administrator {
     }
 
 
-
     static getUser(admin_id, email, teacher_nbr) {
 
         if(id !== null) {
@@ -35,10 +34,12 @@ class Administrator {
         }
     }
 
+
     static deleteUser() {
 
     }
 
+    
     static searchUser(email) {
 
     }
