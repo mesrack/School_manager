@@ -4,16 +4,14 @@
     <head>
         <title>Register</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="/assets/semantic/semantic.min.css">
-        <link rel="stylesheet" href="/assets/stylesheets/style.css">
     </head>
 
     <body>
         <div class="ui middle aligned center aligned grid">
             <div class="column">
 
-                <% if(messages.error) { %>
-                    <%= messages.error %>
+                <% if(messages) { %>
+                    <%= messages %>
                 <% } %>
 
                 <form action="/login" method="POST" id="form_login" class="ui large form">
@@ -46,4 +44,6 @@
             </div>
         </div>
     </body>
+    <link rel="stylesheet" href="/assets/semantic/semantic.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/login_register.css">
 </html>

@@ -8,40 +8,42 @@
     
     <body>
 
-        <div id="wrap">
-            <header>
-                <div class="inner-header">
-                    <div class="ui fixed inverted menu">
-                        <div class="header item">
-                            <span id="school-name">Louis Pasteur</span>
+        <div class="ui inverted vertical center aligned segment">
+            <div class="ui fixed inverted menu">
+                <div class="header item">
+                    <span id="school-name">Louis Pasteur</span>
+                </div>
+                <div class="right menu">
+
+                    <a href="/" class="item">
+                        <i class="home icon"></i> Home
+                    </a>
+                    <a href="/support" class="item">Support</a>
+
+                    <div class="item">
+                        <div class="ui transparent inverted icon input">
+                            <i class="search icon"></i>
+                            <input type="text" id="searchBar" placeholder="Search">
                         </div>
-                        <div class="right menu">
-                            <a class="item active" class="item">Home</a>
-                            <a class="item" class="item">Support</a>
+                    </div>
+
+                    <div class="ui dropdown item" id="dropdown" tabindex="0">
+                        <i class="user icon"></i>
+                        <span id="username"> <%= username%> Account </span>
+                        <i class="dropdown icon"></i>
+                        <div class="menu transition hidden">
                             <div class="item">
-                                <div class="ui transparent inverted icon input">
-                                    <i class="search icon"></i>
-                                    <input type="text" id="searchBar" placeholder="Search">
-                                </div>
+                                <a href="/profile">View Profile</a>
                             </div>
-                            <div class="ui dropdown item" id="dropdown" tabindex="0">
-                                <i class="user icon"></i>
-                                <span id="username"> <%= username%> Account </span>
-                                <i class="dropdown icon"></i>
-                                <div class="menu transition hidden">
-                                    <div class="item">
-                                        <a href="/profile">View Profile</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="/logout"></a>Logout</a>
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <a href="/logout">Logout</a>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
-            </header>
-
+            </div>
         </div>
+
+
+        
