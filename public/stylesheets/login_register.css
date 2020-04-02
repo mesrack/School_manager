@@ -9,6 +9,7 @@ body {
     width:100%;  
     color:black;
 }
+
 body:before {
     content: "";
     position: fixed;

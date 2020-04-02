@@ -1,16 +1,55 @@
 <%- include ('header') %>
 
+    <!-- flag below menu -->
+        <div class="ui grid flag">
+            <div class="ui center aligned two column stackable grid">
+                <div class="five wide column">
+                    <h3>School statistics</h3>
+                    <ul id="school-stats">
+                        <li class="item">Number of classes : </li>
+                        <li class="item">Number of teachers : </li>
+                        <li class="item">Number of students : </li>
+                    </ul>
+                </div>
 
-        <div class="ui vertical stripe segment">
-            <div class="ui middle aligned stackable grid container">
-                <h2> School statistic</h2>
-                <ul>
-                    <li class="item">Number of classes : </li>
-                    <li class="item">Number of teachers : </li>
-                    <li class="item">Number of students : </li>
-                </ul>
+                <div class="nine wide column">
+                    <h2>Next event</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae lacus dapibus accumsan. Phasellus luctus justo ut odio vehicula, ac mollis nisl vulputate. Mauris dignissim sem quis lectus sagittis, ut bibendum nisl tincidunt cras amet.</p>
+                </div>
             </div>
         </div>
+
+        <!-- bulle -->
+        <div class="ui three column doubling stackable grid">
+            
+            <div class="column buttom">
+                <a href="/events">
+                    <div class="ui segment" id="events">Events</div>
+                </a>
+                <a href="/teachers">
+                    <div class="ui segment" id="teachers">Teachers</div>
+                </a>
+            </div>
+
+            
+            <div class="column buttom">
+                <a href="/classrooms">
+                    <div class="ui segment" id="classrooms">Classrooms</div>
+                </a>
+                <a href="/students">
+                    <div class="ui segment" id="students">Students</div>
+                </a>
+            </div>
+
+            <div class="column text">
+                <div class="ui segment">
+                    <h2>Last Event</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae lacus dapibus accumsan. Phasellus luctus justo ut odio vehicula, ac mollis nisl vulputate. Mauris dignissim sem quis lectus sagittis, ut bibendum nisl tincidunt cras amet.
+                </div>
+            </div>
+            
+        </div>
+
 
 <%- include ('footer') %>
 
