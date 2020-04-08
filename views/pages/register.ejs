@@ -11,7 +11,7 @@
             <div class="column">
 
                 <% if(messages) { %>
-                    <%= messages %>
+                    <%= messages.error %>
                 <% } %>
 
                 <form action="/register" method="POST" id="form-register" class="ui large form">
@@ -20,7 +20,7 @@
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="name" id="name" placeholder="Name" required>
+                                <input type="text" name="name" id="name" placeholder="Last name" required>
                             </div>
                         </div>
     

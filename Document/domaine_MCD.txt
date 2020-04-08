@@ -1,0 +1,7 @@
+Liste de domaines :
+[M,F]
+
+[Substitute,Director,Teacher,technician]
+
+[Boulevard,Avenue,High street,Blind alley,Alley,Square,Road,Path,Crossroad]
+

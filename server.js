@@ -94,4 +94,9 @@ app.get('/', (req, res) => {
 })
 
 
+.get('/profile', (req, res) => {
+    res.render('./pages/profile.ejs', {username : "Loïc"})
+})
+
+
 app.listen(8080)

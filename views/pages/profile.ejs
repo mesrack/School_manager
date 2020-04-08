@@ -1,0 +1,99 @@
+<%- include ('header') %>
+
+
+
+        <div class="ui center aligned grid">
+            <div class="column">
+                <form method="POST" action="/support" class="ui large form">
+
+                    <h3 class="ui dividing header">Identity</h3>
+
+                    <div class="two fields">
+                        <div class="field">
+                            <label>First name</label>
+                            <input type="text" name="first-name" value="loïc" disabled>
+                        </div>
+                        <div class="field">
+                            <label>Last name</label>
+                            <input type="text" name="last-name" value="FERRANDEZ" disabled>
+                        </div>
+                    </div>
+
+                    <div class="three fields">
+                        <div class="field">
+                            <label>Phone number</label>
+                            <input type="tel" name="phone" disabled>
+                        </div>
+
+                        <div class="field">
+                            <label>Role</label>
+                            <input type="text" name="role" disabled>
+                        </div>
+    
+                        <div class="field">
+                            <label>Teacher number</label>
+                            <input type="text" name="teacher-number" value="548131zeg6s4d8g" disabled>
+                        </div>
+                    </div>
+                    
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" name="email" value="loicfer@yahoo.fr" disabled>
+                        </div>
+    
+                        <div class="field">
+                            <label>Password</label>
+                            <input type="password" name="password" value="123456789" disabled>
+                        </div>
+                    </div>
+
+                    
+                    <h3 class="ui dividing header">Address</h3>
+        
+                    <div class="three fields">                        
+                        <div class="field">
+                            <input type="text" name="street-nbr" value="15" disabled>
+                        </div>
+
+                        <div class="field">
+                            <input type="text" name="street-type" value="place" disabled>
+                        </div>
+
+                        <div class="field">
+                            <input type="text" name="street-name" value="" disabled>
+                        </div>
+                    </div>
+
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Postal Code</label>
+                            <input type="text" name="postal-code" value="81234" disabled>
+                        </div>
+
+                        <div class="field">
+                            <label>City</label>
+                            <input type="text" name="city" value="Lyon" disabled>
+                        </div>
+                    </div>
+
+                                    
+                    <button class="ui blue button" type="button" id="edit-profile">Edit</button>
+                    
+                    <div class="field" id="buttons_edit" hidden>
+                        <button class="ui blue button" type="submit" id="validate-profile">Validate</button>
+                        <button class="ui blue button" type="button" id="cancel-profile">Cancel</button>
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+
+
+    <%- include ('insert') %>
+
+    <link rel="stylesheet" href="/assets/stylesheets/profile.css">
+    <script src="/assets/js/profile.js"></script>
+
+<%- include ('footer') %>
