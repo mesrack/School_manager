@@ -98,5 +98,10 @@ app.get('/', (req, res) => {
     res.render('./pages/profile.ejs', {username : "Loïc"})
 })
 
+.get('/profileedit', (req, res) => {
+    // update profile in DB
+    // redirect
+})
+
 
 app.listen(8080)

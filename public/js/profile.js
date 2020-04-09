@@ -1,31 +1,23 @@
 
 $('#edit-profile').click(function (e) {
     
-    var container = document.querySelectorAll("input[disabled]");
+    var allInput = $(':input');
 
-    console.log(container);
-
-    container.forEach(element => {
-        
-        if(element.name != "role" && element.name != "first-name") {
-            element.removeAttribute("disabled");
-            
-        }
-        console.log(element);
-    });
+    allInput.removeAttr("disabled")
+    .filter("input[name=password], input[name=teacher-number], select[name=role]")
+    .attr("disabled", true);
 
     this.setAttribute('style', 'display : none');
 
-    $('#buttons_edit').removeAttr("hidden");
+    $('#button-edit').removeAttr("hidden");
     
 });
 
-
+// If cancel the editor, we refresh the page
 $('#cancel-profile').click( () => {
 
-    console.log("coucou")
-    
-    $("input").attr("disabled");
+    location.reload(true);
 
 })
+
 

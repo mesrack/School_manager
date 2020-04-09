@@ -4,7 +4,7 @@
 
         <div class="ui center aligned grid">
             <div class="column">
-                <form method="POST" action="/support" class="ui large form">
+                <form method="POST" action="/profileedit" class="ui large form">
 
                     <h3 class="ui dividing header">Identity</h3>
 
@@ -27,7 +27,12 @@
 
                         <div class="field">
                             <label>Role</label>
-                            <input type="text" name="role" disabled>
+                            <select class="ui fluid dropdown" name="role" disabled>
+                                <option value="DIR">Director</option>
+                                <option value="TEA">Teacher</option>
+                                <option value="SUB">Substitute</option>
+                                <option value="TEC">Technician</option>
+                            </select>
                         </div>
     
                         <div class="field">
@@ -41,7 +46,7 @@
                             <label>Email</label>
                             <input type="email" name="email" value="loicfer@yahoo.fr" disabled>
                         </div>
-    
+
                         <div class="field">
                             <label>Password</label>
                             <input type="password" name="password" value="123456789" disabled>
@@ -53,14 +58,23 @@
         
                     <div class="three fields">                        
                         <div class="field">
+                            <label>Street number</label>
                             <input type="text" name="street-nbr" value="15" disabled>
                         </div>
 
                         <div class="field">
-                            <input type="text" name="street-type" value="place" disabled>
+                            <label>Street type</label>
+                            <select class="ui fluid dropdown" name="street-type" disabled>
+                                <option value="PL">Place</option>
+                                <option value="ST">Street</option>
+                                <option value="BO">Boulevard</option>
+                                <option value="BL">Blind</option>
+                                <option value="AL">Alley</option>
+                            </select>
                         </div>
 
                         <div class="field">
+                            <label>Street name</label>
                             <input type="text" name="street-name" value="" disabled>
                         </div>
                     </div>
@@ -77,10 +91,11 @@
                         </div>
                     </div>
 
-                                    
-                    <button class="ui blue button" type="button" id="edit-profile">Edit</button>
+                    <div class="field">
+                        <button class="ui blue button" type="button" id="edit-profile">Edit</button>
+                    </div>                
                     
-                    <div class="field" id="buttons_edit" hidden>
+                    <div class="field" id="button-edit" hidden>
                         <button class="ui blue button" type="submit" id="validate-profile">Validate</button>
                         <button class="ui blue button" type="button" id="cancel-profile">Cancel</button>
                     </div>
