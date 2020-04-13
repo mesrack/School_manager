@@ -4,7 +4,7 @@ $('#edit-profile').click(function (e) {
     var allInput = $(':input');
 
     allInput.removeAttr("disabled")
-    .filter("input[name=password], input[name=teacher-number], select[name=role]")
+    .filter("input[name=password], input[name=teacher-number], input[name=role]")
     .attr("disabled", true);
 
     this.setAttribute('style', 'display : none');
@@ -19,7 +19,3 @@ $('#cancel-profile').click( () => {
     location.reload(true);
 
 })
-
-
-
-

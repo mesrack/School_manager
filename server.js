@@ -47,48 +47,6 @@ app.get('/', (req, res) => {
     failureFlash: true
 }))
 
-.get('/register', (req, res) => {
-    res.render('./pages/register.ejs')
-})
-
-
-.post('/register', (req, res) => {
-
-
-    connection.query("SELECT * FROM administrator WHERE admin_email = '" + email + "'", async (err,rows) => {
-        console.log(rows)
-        console.log("above row object")
-
-        if(err) {
-            res.render('./pages/register.ejs', {message : "Search for existing account failed."})
-        }
-         if (rows.length) {
-            res.render('./pages/register.ejs', { message : "Email address already exists."})
-        } else {
-
-            // If there is no user with that email
-            // Create the user
-            const hashedPassword = await bcrypt.hash(password, 10)
-        
-            let insertQuery = "INSERT INTO administrator ( admin_lastname, admin_email, admin_pass, admin_teachernumber) \
-                               VALUES ('" + req.body.name + "', \
-                                       '" + req.body.email +"', \
-                                       '" + hashedPassword +"', \
-                                       '" +  req.body.teachernumber + "')";
-
-            connection.query(insertQuery, (err,rows) => {
-
-                if(err) {
-                    res.render('./pages/register', {message : 'Account registration failed.'})
-                } else {
-                    res.render('./pages/login')
-                }
-            });	
-        }
-    })
-
-})
-
 .get('/support', (req, res) => {
     res.render('./pages/support.ejs', {username : "Loïc"})
 })
@@ -98,7 +56,11 @@ app.get('/', (req, res) => {
     res.render('./pages/profile.ejs', {username : "Loïc"})
 })
 
-.get('/profileedit', (req, res) => {
+.get('/account_management', (req, res) => {
+    res.render('./pages/account_management.ejs', {username : "Loïc"})
+})
+
+.get('/profile_edit', (req, res) => {
     // update profile in DB
     // redirect
 })

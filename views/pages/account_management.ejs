@@ -1,0 +1,41 @@
+<%- include ('header') %>
+
+        <div class="ui center aligned grid">
+            <div class="column">
+                <table class="ui very basic collapsing celled table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>classroom</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4 class="ui heaeder">
+                                    <a href="">
+                                        <div class="content">Name
+                                            <div class="sub header">Role</div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </td>
+                            <td>Classroom</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="/add_user">
+                    <div class="ui segment icon">
+                        <i class="plus circle icon"></i>
+                        Add user
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </body>
+    <%- include ('insert') %>
+
+    <link rel="stylesheet" href="/assets/stylesheets/account_management.css">
+
+<%- include ('footer') %>
