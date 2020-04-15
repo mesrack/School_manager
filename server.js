@@ -28,6 +28,23 @@ app.set('view-engine', 'ejs')
 .use(passport.session())
 
 
+var tabEmployees = [
+    {name: 'Emarre', role: 'Head teacher', classroom: 'CM2 A'},
+    {name: 'Misu', role: 'Teacher', classroom: 'CM2 B'},
+    {name: 'Dupond', role: 'Teacher', classroom: 'CM1 A'},
+    {name: 'Cougnu', role: 'Teacher', classroom: 'CE2 A'},
+    {name: 'Boulard', role: 'Substitute', classroom: 'CE2 B'}
+];
+
+var typeStreet = [
+    {name: 'place', value: 'PL'},
+    {name: 'street', value: 'ST'},
+    {name: 'boulevard', value: 'BO'},
+    {name: 'blind', value: 'BL'},
+    {name: 'alley', value: 'AL'},
+    {name: 'impasse', value: 'IM'},
+];
+
 
 /********************************************** */
 /******************* Roads ******************** */
@@ -53,11 +70,11 @@ app.get('/', (req, res) => {
 
 
 .get('/profile', (req, res) => {
-    res.render('./pages/profile.ejs', {username : "Loïc"})
+    res.render('./pages/profile.ejs', {username : "Loïc", types : typeStreet })
 })
 
 .get('/account_management', (req, res) => {
-    res.render('./pages/account_management.ejs', {username : "Loïc"})
+    res.render('./pages/account_management.ejs', {username : "Loïc", employees: tabEmployees})
 })
 
 .get('/profile_edit', (req, res) => {

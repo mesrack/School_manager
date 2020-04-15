@@ -1,6 +1,4 @@
-<%- include ('header') %>
-
-
+<%- include ('../partials/header') %>
 
         <div class="ui center aligned grid">
             <div class="column">
@@ -32,7 +30,7 @@
     
                         <div class="field">
                             <label>Teacher number</label>
-                            <input type="" name="teacher-number" value="548131zeg6s4d8g" disabled>
+                            <input type="text" name="teacher-number" value="548131zeg6s4d8g" disabled>
                         </div>
                     </div>
                     
@@ -60,11 +58,9 @@
                         <div class="field">
                             <label>Street type</label>
                             <select class="ui fluid dropdown" name="street-type" disabled>
-                                <option value="PL">Place</option>
-                                <option value="ST">Street</option>
-                                <option value="BO">Boulevard</option>
-                                <option value="BL">Blind</option>
-                                <option value="AL">Alley</option>
+                                <% types.forEach(function(type) { %>
+                                    <option value= <%= type.value %> > <%= type.name %> </option>
+                                    <% });%>
                             </select>
                         </div>
 
@@ -102,9 +98,9 @@
     </body>
 
 
-    <%- include ('insert') %>
+    <%- include ('../partials/insert') %>
 
     <link rel="stylesheet" href="/assets/stylesheets/profile.css">
     <script src="/assets/js/profile.js"></script>
 
-<%- include ('footer') %>
+<%- include ('../partials/footer') %>

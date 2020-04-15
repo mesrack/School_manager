@@ -1,4 +1,32 @@
-<%- include ('header') %>
+<%- include ('../partials/header') %>
+
+        <div id="modal" class="modal">
+            <div class="modal-dialog animated">
+                <div class="modal-content">
+                    <form class="form-horizontal" method="get">
+                        <div class="modal-header">
+                            <strong>Yep, I'm a dialog...</strong>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="dummyText" class="control-label col-xs-4">Dummy text</label>
+                                <div class="input-group col-xs-7">
+                                    <input type="text" name="dummyText" id="dummyText" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-default" type="button" onclick="modal.close();">Cancel</button>
+                            <button class="btn btn-primary" type="submit" onclick="modal.close();">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="ui center aligned grid">
             <div class="column">
@@ -10,32 +38,42 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% employees.forEach(function(employee) { %>
                         <tr>
                             <td>
                                 <h4 class="ui heaeder">
                                     <a href="">
-                                        <div class="content">Name
-                                            <div class="sub header">Role</div>
+                                        <div class="content"> <%= employee.name %>
+                                            <div class="sub header"><%= employee.role %></div>
                                         </div>
                                     </a>
                                 </h4>
                             </td>
-                            <td>Classroom</td>
+                            <td>
+                                <%= employee.classroom %>
+                            </td>
                         </tr>
+                        <% }); %>
+                        
+                            <tr>
+                                <td>
+                                    <a href="#" id="showModal">
+                                        <div class="content">                                        
+                                            <i class="plus circle icon"></i>
+                                            Add user
+                                        </div>
+                                    </a>
+                                </td>
+                                <td></td>
+                            </tr>
                     </tbody>
                 </table>
-                <a href="/add_user">
-                    <div class="ui segment icon">
-                        <i class="plus circle icon"></i>
-                        Add user
-                    </div>
-                </a>
             </div>
         </div>
 
     </body>
-    <%- include ('insert') %>
+    <%- include ('../partials/insert') %>
 
     <link rel="stylesheet" href="/assets/stylesheets/account_management.css">
 
-<%- include ('footer') %>
+<%- include ('../partials/footer') %>
