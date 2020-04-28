@@ -29,11 +29,11 @@ app.set('view-engine', 'ejs')
 
 
 var tabEmployees = [
-    {name: 'Emarre', role: 'Head teacher', classroom: 'CM2 A'},
-    {name: 'Misu', role: 'Teacher', classroom: 'CM2 B'},
-    {name: 'Dupond', role: 'Teacher', classroom: 'CM1 A'},
-    {name: 'Cougnu', role: 'Teacher', classroom: 'CE2 A'},
-    {name: 'Boulard', role: 'Substitute', classroom: 'CE2 B'}
+    {name: 'Emarre', role: 'Head teacher', classroom: 'CM2 A', password: '/vzeq4*4z9*', numTeacher: '48977151654'},
+    {name: 'Misu', role: 'Teacher', classroom: 'CM2 B', password: 'G1ChientKimEM', numTeacher: '8798741513'},
+    {name: 'Dupond', role: 'Teacher', classroom: 'CM1 A', password: '4qz879rh*', numTeacher: '14848779744'},
+    {name: 'Cougnu', role: 'Teacher', classroom: 'CE2 A', password: '64bqes84th64', numTeacher: '115463578'},
+    {name: 'Boulard', role: 'Substitute', classroom: 'CE2 B', password: 'v4qzrh687jr', numTeacher: '124878935'}
 ];
 
 var typeStreet = [
@@ -45,12 +45,19 @@ var typeStreet = [
     {name: 'impasse', value: 'IM'},
 ];
 
+var sessionUser = new Object();
+sessionUser.name = "loïc"; 
+sessionUser.role = "admin";
+
+
+
 
 /********************************************** */
 /******************* Roads ******************** */
 
+
 app.get('/', (req, res) => {
-    res.render('./pages/index.ejs', {username : "Loïc"})
+    res.render('./pages/index.ejs', {sessionUser : sessionUser})
 })
 
 
@@ -65,16 +72,17 @@ app.get('/', (req, res) => {
 }))
 
 .get('/support', (req, res) => {
-    res.render('./pages/support.ejs', {username : "Loïc"})
+    res.render('./pages/support.ejs', {sessionUser : sessionUser})
 })
 
 
 .get('/profile', (req, res) => {
-    res.render('./pages/profile.ejs', {username : "Loïc", types : typeStreet })
+    res.render('./pages/profile.ejs', {sessionUser : sessionUser, types : typeStreet })
 })
 
 .get('/account_management', (req, res) => {
-    res.render('./pages/account_management.ejs', {username : "Loïc", employees: tabEmployees})
+    res.render('./pages/account_management.ejs', {sessionUser : sessionUser,
+                                                  employees: tabEmployees})
 })
 
 .get('/profile_edit', (req, res) => {

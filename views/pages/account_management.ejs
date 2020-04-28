@@ -1,31 +1,6 @@
 <%- include ('../partials/header') %>
 
-        <div id="modal" class="modal">
-            <div class="modal-dialog animated">
-                <div class="modal-content">
-                    <form class="form-horizontal" method="get">
-                        <div class="modal-header">
-                            <strong>Yep, I'm a dialog...</strong>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="dummyText" class="control-label col-xs-4">Dummy text</label>
-                                <div class="input-group col-xs-7">
-                                    <input type="text" name="dummyText" id="dummyText" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button class="btn btn-default" type="button" onclick="modal.close();">Cancel</button>
-                            <button class="btn btn-primary" type="submit" onclick="modal.close();">Save</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
+        
 
 
         <div class="ui center aligned grid">
@@ -34,7 +9,12 @@
                     <thead>
                         <tr>
                             <th>Employee</th>
-                            <th>classroom</th>
+                            <th>Classroom</th>
+                            <% if(sessionUser.role === "admin") { %>
+                            <th>Password</th>
+                            <% } %>
+                            <th>Status</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -42,7 +22,7 @@
                         <tr>
                             <td>
                                 <h4 class="ui heaeder">
-                                    <a href="">
+                                    <a href="#" class="open-modal" rel="modal:open">
                                         <div class="content"> <%= employee.name %>
                                             <div class="sub header"><%= employee.role %></div>
                                         </div>
@@ -52,17 +32,23 @@
                             <td>
                                 <%= employee.classroom %>
                             </td>
+
+                            <% if(sessionUser.role === "admin") { %>
+                            <td>
+                                <%= employee.password %>
+                                <button class="ui right floated red button reset " id= <%= employee.numTeacher %>>Reset</button>
+                            </td>
+                            <% } %>
+
                         </tr>
                         <% }); %>
                         
                             <tr>
                                 <td>
-                                    <a href="#" id="showModal">
-                                        <div class="content">                                        
-                                            <i class="plus circle icon"></i>
-                                            Add user
-                                        </div>
-                                    </a>
+                                    <div id="add-user" class="content">                                        
+                                        <i class="plus circle icon"></i>
+                                        Add user
+                                    </div>
                                 </td>
                                 <td></td>
                             </tr>
@@ -71,9 +57,63 @@
             </div>
         </div>
 
+
+        <!-- Modal add user -->
+        <div class="ui modal adduser">
+            <div class="content">
+                <form action="" method="POST" class="ui form">
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Name</label>
+                            <input type="text" placeholder="First name">
+                        </div>
+                        <div class="field">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Last name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <input type="text" placeholder="Temporary password">
+                    </div>
+                    <div class="actions">
+                        <div class="ui green approve button">Approve</div>
+                        <div class="ui red cancel button">Cancel</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal change pass -->
+        <div class="ui modal pass">
+            <div class="content">
+                <form action="" method="POST" class="ui form">
+                    <p>Thanks to enter a new password :</p>
+                    <div id="div-pass-1" class="field">
+                        <input type="text" id="new-pass-1" placeholder="New password">
+                    </div>
+
+                    <div class="ui message" hidden>
+                        <div class="header message">password needs :</div>
+                        <ul id="error-message"></ul>
+                    </div>
+                    
+                    <p>And again :</p>
+                    <div class="field">
+                        <input type="text" id="new-pass-2" placeholder="New password">
+                    </div>
+                    <div class="actions">
+                        <div class="ui green approve button">Approve</div>
+                        <div class="ui red cancel button">Cancel</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </body>
     <%- include ('../partials/insert') %>
 
     <link rel="stylesheet" href="/assets/stylesheets/account_management.css">
+    <script src="/assets/js/account_management.js"></script>
 
 <%- include ('../partials/footer') %>
