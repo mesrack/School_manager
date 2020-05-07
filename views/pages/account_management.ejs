@@ -61,23 +61,26 @@
         <!-- Modal add user -->
         <div class="ui modal adduser">
             <div class="content">
-                <form action="" method="POST" class="ui form">
+                <form method="POST" id="form-user" class="ui form">
                     <div class="two fields">
                         <div class="field">
                             <label>Name</label>
-                            <input type="text" placeholder="First name">
+                            <input type="text" id="first-name" placeholder="First name">
                         </div>
                         <div class="field">
                             <label>Last Name</label>
-                            <input type="text" placeholder="Last name">
+                            <input type="text" id="last-name" placeholder="Last name">
                         </div>
                     </div>
                     <div class="field">
                         <label>Password</label>
-                        <input type="text" placeholder="Temporary password">
+                        <input type="text" id="password" placeholder="Temporary password">
                     </div>
                     <div class="actions">
-                        <div class="ui green approve button">Approve</div>
+                        <button type="submit" class="ui green approve labeled icon button">
+                            Approve
+                            <i class="checkmark icon"></i>
+                        </button>
                         <div class="ui red cancel button">Cancel</div>
                     </div>
                 </form>
@@ -87,10 +90,10 @@
         <!-- Modal change pass -->
         <div class="ui modal pass">
             <div class="content">
-                <form action="" method="POST" class="ui form">
+                <form method="POST" id="form-pass" class="ui form pass">
                     <p>Thanks to enter a new password :</p>
                     <div id="div-pass-1" class="field">
-                        <input type="text" id="new-pass-1" placeholder="New password">
+                        <input type="text" id="new-pass-1" name="new-password" placeholder="New password">
                     </div>
 
                     <div class="ui message" hidden>
@@ -103,7 +106,10 @@
                         <input type="text" id="new-pass-2" placeholder="New password">
                     </div>
                     <div class="actions">
-                        <div class="ui green approve button">Approve</div>
+                        <button type="submit" id="button-pass" class="ui green approve labeled icon button" disabled>
+                            Approve
+                            <i class="checkmark icon"></i>
+                        </button>
                         <div class="ui red cancel button">Cancel</div>
                     </div>
                 </form>

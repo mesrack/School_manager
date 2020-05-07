@@ -31,67 +31,113 @@ function checkPass (password) {
     return tabError;
 }
 
-// Modal reset password
+/***************** Init Variables ****************/
+var pass1 = '';
+var pass2 = '';
+var passValidated;
+var identicalPass;
+var userID = '';
+
+
+/***************************************************** */
+/***************** Modal reset password ****************/
+/***************************************************** */
+
 $('.reset').click(function () {
+
+    $('#user-id').attr("value", this.id);
+    userID = this.id;
+    passValidated = false;
+    identicalPass = false;
+    $('#button-pass').attr('disabled', true);
+    
 
     // For approve the new password, we check if the user write the same password 2 times
     $('.ui.modal.pass').modal({
         closable    : false,
-        onApprove   : function () {           
+        onApprove   : function () {
 
-            let pass1 = $('#new-pass-1').val();
-            let pass2 = $('#new-pass-2').val();
-            
-            if(pass2 !== pass1) {
-                $('#new-pass-2').attr('style', 'color : red');
-                return false;
+            if(passValidated === true && identicalPass === true) {
+                $('#form-pass').trigger("reset");
+                return true;
             }
+
+            return false;
+        },
+        onDeny      : function () {
+            $('#form-pass').trigger("reset");
         }
     })
     .modal('show');
 })
 
-// event related to changes in input
-$('#new-pass-1').change(function() {
-
-    let passwordVerified = checkPass((this).value);
-
-    $('#error-message').children().remove();
-
-    // check if the array "passwordVerified" is empty and activate the popup otherwise
-    if(passwordVerified.length > 0 ) {
-       
-        passwordVerified.forEach(element => {
-            $("#error-message").append('<li>' + element);            
-        });
-
-        $('.ui.message').removeAttr('hidden');
-
-        // Prevents validating an incorrect password
-        $('.ui.modal.pass').modal({
-            onApprove : function () {
-                return false;
-            }
-        })
+/***************** check if user write the same password twice ****************/
+$('#new-pass-2').keyup(function () {
+    pass2 = this.value;
+    
+    if(pass2 === pass1) {
+        $(this).removeAttr("style");
+        identicalPass = true;
+        if(passValidated === true) {
+            $('#button-pass').removeAttr('disabled');
+        }
+    } else {
+        $(this).attr("style", "color : red");
+        identicalPass = false;
     }
-    else {
-
-        // hide the message box and authorize the validate
-        $('.ui.message').attr('hidden', 'true');
-
-        $('.ui.modal.pass').modal({
-            onApprove : function () {
-                return true;
-            }
-        })
-    }
-
-
-
 })
 
 
-// Modal add user
+/***************** event related to changes in input ****************/
+$('#new-pass-1').change(function() {
+
+    let tabError = checkPass((this).value);
+
+    pass1 = this.value;
+
+    $('#error-message').children().remove();
+
+    // check if the array "tabError" is empty and activate the popup otherwise
+    if(tabError.length > 0 ) {
+       
+        tabError.forEach(element => {
+            $("#error-message").append('<li>' + element);            
+        });
+        $('.ui.message').removeAttr('hidden');
+        passValidated = false;
+
+    } else {
+        // hide the message box and authorize the validate
+        $('.ui.message').attr('hidden', 'true');
+        passValidated = true;
+    }
+})
+
+/***************** submit form #form-pass ****************/
+$('form#form-pass').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        type : 'post',
+        url  : '/account_management/reset-pass',
+        data : {
+            userID : userID,
+            password : pass1
+        }
+    }).done(function (data) {
+        alert("bien effectué")
+        document.location.reload(true);
+        
+    })
+})
+
+
+
+
+/***************************************************** */
+/********************* Modal add user ******************/
+/***************************************************** */
+
 $('#add-user').click(function () {
     $('.ui.modal.adduser').modal({
         closable    : false,
@@ -102,7 +148,18 @@ $('#add-user').click(function () {
 });
 
 
+/***************** submit form #form-user ****************/
+$('form#form-user').on('submit', function (e) {
+    e.preventDefault();
 
-
-
+    $.ajax({
+        type : 'post',
+        url  : '/account_management/add-user',
+        data : {
+            firstname   : $('#first-name').val(),
+            lastname    : $('#last-name').val(),
+            password    : $('#password').val()
+        }
+    })
+})
 

@@ -50,3 +50,7 @@ label {
     background-color: rgba(255, 248, 215, 0.507) !important;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+#add-user:hover {
+    cursor: pointer;
+}

@@ -1,3 +1,13 @@
+/**
+ * Server file
+ * 
+ * @author : Ferrandez Loïc
+ * @version : 0.1.0
+ * 
+ * @description : Create a primary school manager intended for intranet use
+ * 
+*/
+
 if(process.env.NODE_ENV !== 'production') {
     console.log("On est en mode dev")
     require('dotenv').config()
@@ -10,6 +20,9 @@ const passport = require('passport')
 var admin = require('./models/administrator')
 const flash = require('express-flash')
 const session = require('express-session')
+const bodyParser = require('body-parser')
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false});
 
 
 const initializePassport = require('./config/passport-config')
@@ -28,6 +41,7 @@ app.set('view-engine', 'ejs')
 .use(passport.session())
 
 
+// test items
 var tabEmployees = [
     {name: 'Emarre', role: 'Head teacher', classroom: 'CM2 A', password: '/vzeq4*4z9*', numTeacher: '48977151654'},
     {name: 'Misu', role: 'Teacher', classroom: 'CM2 B', password: 'G1ChientKimEM', numTeacher: '8798741513'},
@@ -88,6 +102,23 @@ app.get('/', (req, res) => {
 .get('/profile_edit', (req, res) => {
     // update profile in DB
     // redirect
+})
+
+.post('/account_management/reset-pass', urlencodedParser, (req, res) => {
+
+    for(let i = 0 ; i < tabEmployees.length ; i++) {
+
+        if(tabEmployees[i].numTeacher === req.body.userID) {
+            tabEmployees[i].password = req.body.password;
+        }
+    }
+
+    res.render('./pages/account_management.ejs', {sessionUser : sessionUser,
+                                                  employees   : tabEmployees})
+})
+
+.post('/account_management/add-user', urlencodedParser, (req, res) => {
+    console.log(req.body)
 })
 
 
