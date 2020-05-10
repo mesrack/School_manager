@@ -1,35 +1,4 @@
-function checkPass (password) {  
 
-    let tabError = [];
-    const regexMaj = new RegExp ("[A-Z]+","g")    // Capital letter
-    const regexNum = new RegExp ("[0-9]+","g");   // numbers
-    const regexspe = /^[\w]*$/;                   // Alphanumérique and underscore
-
-
-    // check if pass is more 6 characters
-    if(password.length < 6 ) {
-        tabError.push(" minimum 6 characters")
-    }
-
-    // verif si il a une maj
-    let tabPass = password.match(regexMaj);
-    if(tabPass == null) {
-        tabError.push(" capital letter")
-    }
-
-    // verif si il a une carac spé
-    if(regexspe.test(password) == true) {
-        tabError.push(" special characters")
-    }
-
-    // verif si il a un numéro
-    tabPass = password.match(regexNum);
-    if(tabPass == null) {
-        tabError.push(" numbers")
-    }
-
-    return tabError;
-}
 
 /***************** Init Variables ****************/
 var pass1 = '';
@@ -37,6 +6,7 @@ var pass2 = '';
 var passValidated;
 var identicalPass;
 var userID = '';
+
 
 
 /***************************************************** */
@@ -125,8 +95,9 @@ $('form#form-pass').on('submit', function (e) {
             password : pass1
         }
     }).done(function (data) {
-        alert("bien effectué")
-        document.location.reload(true);
+        
+        $('#users').DataTable().ajax.reload();
+        //document.location.reload(true);
         
     })
 })
@@ -163,3 +134,43 @@ $('form#form-user').on('submit', function (e) {
     })
 })
 
+
+
+
+/********************************************* */
+/****************** FUNCTIONS **************** */
+/********************************************* */
+
+function checkPass (password) {  
+
+    let tabError = [];
+    const regexMaj = new RegExp ("[A-Z]+","g")    // Capital letter
+    const regexNum = new RegExp ("[0-9]+","g");   // numbers
+    const regexspe = /^[\w]*$/;                   // Alphanumérique and underscore
+
+
+    // check if pass is more 6 characters
+    if(password.length < 6 ) {
+        tabError.push(" minimum 6 characters")
+    }
+
+    // verif si il a une maj
+    let tabPass = password.match(regexMaj);
+    if(tabPass == null) {
+        tabError.push(" capital letter")
+    }
+
+    // verif si il a une carac spé
+    if(regexspe.test(password) == true) {
+        tabError.push(" special characters")
+    }
+
+    // verif si il a un numéro
+    tabPass = password.match(regexNum);
+    if(tabPass == null) {
+        tabError.push(" numbers")
+    }
+
+    return tabError;
+}
+                                   

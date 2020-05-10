@@ -5,16 +5,15 @@
 
         <div class="ui center aligned grid">
             <div class="column">
-                <table class="ui very basic collapsing celled table">
+                <table id="users" class="ui very basic collapsing celled table">
                     <thead>
                         <tr>
                             <th>Employee</th>
-                            <th>Classroom</th>
+                            <th>Role</th>
                             <% if(sessionUser.role === "admin") { %>
                             <th>Password</th>
                             <% } %>
                             <th>Status</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -22,38 +21,39 @@
                         <tr>
                             <td>
                                 <h4 class="ui heaeder">
-                                    <a href="#" class="open-modal" rel="modal:open">
-                                        <div class="content"> <%= employee.name %>
-                                            <div class="sub header"><%= employee.role %></div>
-                                        </div>
+                                    <a href="#">
+                                        <label for="">
+                                            <%= employee.name %>
+                                        </label>
                                     </a>
                                 </h4>
                             </td>
                             <td>
-                                <%= employee.classroom %>
+                                <label for="">
+                                    <%= employee.role %>
+                                </label>
                             </td>
-
                             <% if(sessionUser.role === "admin") { %>
                             <td>
-                                <%= employee.password %>
-                                <button class="ui right floated red button reset " id= <%= employee.numTeacher %>>Reset</button>
+                                <label for="">
+                                    <%= employee.password %>
+                                </label>
+                                    <button class="ui right floated red button reset " id= <%= employee.numTeacher %>>Reset</button>
                             </td>
                             <% } %>
-
+                            <td>
+                                <label for="">
+                                    <%= employee.status %>
+                                </label>
+                            </td>
                         </tr>
                         <% }); %>
-                        
-                            <tr>
-                                <td>
-                                    <div id="add-user" class="content">                                        
-                                        <i class="plus circle icon"></i>
-                                        Add user
-                                    </div>
-                                </td>
-                                <td></td>
-                            </tr>
                     </tbody>
                 </table>
+                <button id="add-user" class="ui primary button content">                                        
+                    <i class="plus circle icon"></i>
+                    Add user
+                </button>
             </div>
         </div>
 
@@ -121,5 +121,6 @@
 
     <link rel="stylesheet" href="/assets/stylesheets/account_management.css">
     <script src="/assets/js/account_management.js"></script>
+
 
 <%- include ('../partials/footer') %>

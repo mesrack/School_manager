@@ -1,3 +1,4 @@
+/*
 const connection = require('../config/db.js')
 
 class Administrator {
@@ -48,3 +49,4 @@ class Administrator {
 
 
 module.exports = Administrator
+*/

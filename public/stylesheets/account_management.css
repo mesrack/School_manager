@@ -34,6 +34,10 @@ tr:hover {
     background-color: rgba(228, 228, 228, 0.445) !important;
 }
 
+.content-table {
+    margin-left: 5px;
+}
+
 .modal {
     color: black;
   }

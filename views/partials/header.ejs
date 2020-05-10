@@ -3,6 +3,7 @@
 <html lang="en">
     <head>
         <title>School Management</title>
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/res/favicon-96x96.png">
         <meta charset="utf-8">
     </head>
     
@@ -26,11 +27,11 @@
                     </div>
                 </div>
 
-                <div class="ui dropdown item" id="dropdown" tabindex="0">
+                <div class="ui simple dropdown link item" id="dropdown" tabindex="0">
                     <i class="user icon"></i>
                     <span id="username"> <%= sessionUser.name %> Account </span>
                     <i class="dropdown icon"></i>
-                    <div class="menu transition hidden">
+                    <div class="menu dropdown">
                         <div class="item">
                             <a href="/profile">View Profile</a>
                         </div>

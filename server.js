@@ -13,14 +13,16 @@ if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
-const express = require('express')
-const app = express()
-const bcrypt = require('bcrypt')
-const passport = require('passport')
-var admin = require('./models/administrator')
+const express = require('express')                  // load Express framework
+const app = express()                               // Create application
+const server = require('http').createServer(app);   // Create server with http module
+const bcrypt = require('bcrypt')                    // load module to crypt data
+const passport = require('passport')                // load authenficate module
+//var admin = require('./models/administrator')
 const flash = require('express-flash')
 const session = require('express-session')
 const bodyParser = require('body-parser')
+var io = require('socket.io').listen(server);       // load socket
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false});
 
@@ -43,11 +45,11 @@ app.set('view-engine', 'ejs')
 
 // test items
 var tabEmployees = [
-    {name: 'Emarre', role: 'Head teacher', classroom: 'CM2 A', password: '/vzeq4*4z9*', numTeacher: '48977151654'},
-    {name: 'Misu', role: 'Teacher', classroom: 'CM2 B', password: 'G1ChientKimEM', numTeacher: '8798741513'},
-    {name: 'Dupond', role: 'Teacher', classroom: 'CM1 A', password: '4qz879rh*', numTeacher: '14848779744'},
-    {name: 'Cougnu', role: 'Teacher', classroom: 'CE2 A', password: '64bqes84th64', numTeacher: '115463578'},
-    {name: 'Boulard', role: 'Substitute', classroom: 'CE2 B', password: 'v4qzrh687jr', numTeacher: '124878935'}
+    {name: 'Emarre', role: 'Head teacher', classroom: 'CM2 A', password: '/vzeq4*4z9*', numTeacher: '48977151654', status : 'ok'},
+    {name: 'Misu', role: 'Teacher', classroom: 'CM2 B', password: 'G1ChientKimEM', numTeacher: '8798741513', status : 'ok'},
+    {name: 'Dupond', role: 'Teacher', classroom: 'CM1 A', password: '4qz879rh*', numTeacher: '14848779744', status : 'ok'},
+    {name: 'Cougnu', role: 'Teacher', classroom: 'CE2 A', password: '64bqes84th64', numTeacher: '115463578', status : 'ok'},
+    {name: 'Boulard', role: 'Substitute', classroom: 'CE2 B', password: 'v4qzrh687jr', numTeacher: '124878935', status : 'ok'}
 ];
 
 var typeStreet = [
@@ -105,21 +107,43 @@ app.get('/', (req, res) => {
 })
 
 .post('/account_management/reset-pass', urlencodedParser, (req, res) => {
-
-    for(let i = 0 ; i < tabEmployees.length ; i++) {
-
-        if(tabEmployees[i].numTeacher === req.body.userID) {
-            tabEmployees[i].password = req.body.password;
-        }
-    }
-
-    res.render('./pages/account_management.ejs', {sessionUser : sessionUser,
-                                                  employees   : tabEmployees})
+    console.log(req.body)
 })
 
 .post('/account_management/add-user', urlencodedParser, (req, res) => {
     console.log(req.body)
 })
 
+
+
+/***************************************************** */
+/********************* SOCKET IO ********************* */
+/***************************************************** */
+
+// Manage the data exchange with sockets
+/*
+io.sockets.on('connect', function(socket) {
+
+    socket.emit('users', tabEmployees);
+
+    socket.on('addTask', function(task) {
+
+        var newTask = ent.encode(task);
+
+        todolist.push(newTask);
+
+        io.emit('newTask', {task: newTask, index: (todolist.length-1)})
+    });
+
+    // Delete selected task by index
+    socket.on('deleteTask', function(index) {
+
+        todolist.splice(index, 1);
+
+        io.emit('todolist', todolist);
+        
+    })
+})
+*/
 
 app.listen(8080)

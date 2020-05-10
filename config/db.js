@@ -1,3 +1,4 @@
+/*
 const mysql = require('mysql')
 const connection = mysql.createConnection({
     host : 'localhost',
@@ -10,3 +11,4 @@ connection.connect()
 
 
 module.exports = connection
+*/
