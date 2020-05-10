@@ -63,7 +63,17 @@ var typeStreet = [
 
 var sessionUser = new Object();
 sessionUser.name = "loïc"; 
+sessionUser.lastname = "Ferrandez";
+sessionUser.phone = "0621548796";
 sessionUser.role = "admin";
+sessionUser.teachNbr = "54879123547";
+sessionUser.email = "loicfer@yahoo.fr";
+sessionUser.password = "AZD456-*-d";
+sessionUser.streetNbr = "15";
+sessionUser.streetType = "ST";
+sessionUser.streetName = "des misérables"
+sessionUser.postalCode = "81234"
+sessionUser.city = "Lyon"
 
 
 
@@ -73,6 +83,9 @@ sessionUser.role = "admin";
 
 
 app.get('/', (req, res) => {
+})
+
+.get('/home', (req, res) => {
     res.render('./pages/index.ejs', {sessionUser : sessionUser})
 })
 
@@ -101,9 +114,8 @@ app.get('/', (req, res) => {
                                                   employees: tabEmployees})
 })
 
-.get('/profile_edit', (req, res) => {
-    // update profile in DB
-    // redirect
+.post('/profile/edit', (req, res) => {
+    console.log(req.body)
 })
 
 .post('/account_management/reset-pass', urlencodedParser, (req, res) => {
@@ -113,6 +125,9 @@ app.get('/', (req, res) => {
 .post('/account_management/add-user', urlencodedParser, (req, res) => {
     console.log(req.body)
 })
+
+
+/***************** Roads  *********************/
 
 
 
