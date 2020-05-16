@@ -1,5 +1,6 @@
 # School_manager
 
+
 This project consists of creating an intranet site to allow administrators to manage a primary school.
 An authorization system will be created to differentiate a teacher from a school head or an administrator
 
