@@ -1,0 +1,37 @@
+<%- include ('../partials/header') %>
+
+        <div class="ui center aligned grid">
+            <div class="column">
+                <form method="POST" action="/support" class="ui large form">
+                    <div class="ui stacked segment">
+
+                        <div class="field" id="title-problem">
+                            <label>What's the problem ?</label>
+                            <input type="text" name="problem" placeholder="Title">
+                        </div>
+            
+                        <div class="field" id="desc-problem">
+                            <label>Description</label>
+                            <textarea name="desc-problem" rows="10"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <button class="ui inverted blue button" type="submit">Submit</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+        
+    </body>
+
+    <%- include ('../partials/insert') %>
+
+    <link rel="stylesheet" href="assets/stylesheets/support.css">
+
+
+<%- include ('../partials/footer') %>

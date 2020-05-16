@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+
+                <div class="ui input error">
+                    <% if(messages) { %>
+                        <%= messages.error %>
+                    <% } %>
+                </div>
+
+                <form action="/login" method="POST" id="form_login" class="ui large form">
+                    <div class="ui stacked segment">
+                    
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="envelope icon"></i>
+                                <input type="email" name="email" id="email" placeholder="email">
+                            </div>
+                        </div>
+    
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" id="password" placeholder="password">
+                            </div>
+                        </div>
+    
+                        <button type="submit" class="ui fluid large teal submit icon button">
+                            <i class="icon edit"></i>  Login
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </body>
+    <link rel="stylesheet" href="/assets/semantic/semantic.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/login.css">
+</html>

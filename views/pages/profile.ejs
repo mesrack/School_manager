@@ -1,0 +1,110 @@
+<%- include ('../partials/header') %>
+
+        <div class="ui center aligned grid">
+            <div class="column">
+                <form method="POST" action="/profile/edit" class="ui large form">
+
+                    <h3 class="ui dividing header">Identity</h3>
+
+                    <div class="two fields">
+                        <div class="field">
+                            <label>First name</label>
+                            <input type="text" name="first-name" value=<%= sessionUser.name%> disabled>
+                        </div>
+                        <div class="field">
+                            <label>Last name</label>
+                            <input type="text" name="last-name" value=<%= sessionUser.lastname%> disabled>
+                        </div>
+                    </div>
+
+                    <div class="three fields">
+                        <div class="field">
+                            <label>Phone number</label>
+                            <input type="tel" name="phone" value=<%= sessionUser.phone%> disabled>
+                        </div>
+
+                        <div class="field">
+                            <label>Role</label>
+                            <input type="text" name="role" value=<%= sessionUser.role%> disabled>
+                        </div>
+    
+                        <div class="field">
+                            <label>Teacher number</label>
+                            <input type="text" name="teacher-number" value=<%= sessionUser.teachNbr%> disabled>
+                        </div>
+                    </div>
+                    
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" name="email" value=<%= sessionUser.email%> disabled>
+                        </div>
+
+                        <div class="field">
+                            <label>Password</label>
+                            <input type="password" name="password" value=<%= sessionUser.password%> disabled>
+                        </div>
+                    </div>
+
+                    
+                    <h3 class="ui dividing header">Address</h3>
+        
+                    <div class="three fields">                        
+                        <div class="field">
+                            <label>Street number</label>
+                            <input type="text" name="street-nbr" value=<%= sessionUser.streetNbr%> disabled>
+                        </div>
+
+                        <div class="field">
+                            <label>Street type</label>
+                            <select class="ui fluid dropdown" name="street-type" disabled>
+                                <% types.forEach(function(type) { %>
+                                    <% if(sessionUser.streetType !== type.value) { %>
+                                        <option value=<%= type.value %> > <%= type.name %> </option>
+                                    <% } else { %>
+                                        <option selected value=<%= type.value %> > <%= type.name %> </option>
+                                    <% } %>
+                                <% });%>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Street name</label>
+                            <input type="text" name="street-name" value=<%= sessionUser.streetName %> disabled>
+                        </div>
+                    </div>
+
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Postal Code</label>
+                            <input type="text" name="postal-code" value=<%= sessionUser.postalCode %> disabled>
+                        </div>
+
+                        <div class="field">
+                            <label>City</label>
+                            <input type="text" name="city" value=<%= sessionUser.city %> disabled>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <button class="ui blue button" type="button" id="edit-profile">Edit</button>
+                    </div>                
+                    
+                    <div class="field" id="button-edit" hidden>
+                        <button class="ui green button" type="submit" id="validate-profile">Validate</button>
+                        <button class="ui red button" type="button" id="cancel-profile">Cancel</button>
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+    </body>
+
+
+    <%- include ('../partials/insert') %>
+
+    <link rel="stylesheet" href="/assets/stylesheets/profile.css">
+    <script src="/assets/js/profile.js"></script>
+
+<%- include ('../partials/footer') %>

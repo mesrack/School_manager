@@ -1,0 +1,60 @@
+table {
+    background-color: rgba(241, 241, 241, 0.719) !important;
+    padding: 10px 10px !important;
+    border-radius: 7px;
+    box-shadow: -1px 2px 5px 5px rgba(0, 0, 0, 0.616),
+                -1px 2px 20px rgba(51, 51, 51, 0.6) inset !important;
+    width: 100% !important;
+}
+
+.column {
+    margin-top: 120px;
+    max-width: 60%;   
+}
+
+thead {
+    font-size: 20px;
+}
+
+th {
+    padding-left: 10px !important;
+}
+
+.content {
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.sub.header {
+    font-size: 13px !important;
+    padding-left: 5px;
+}
+
+tr:hover {
+    background-color: rgba(228, 228, 228, 0.445) !important;
+}
+
+.content-table {
+    margin-left: 5px;
+}
+
+.modal {
+    color: black;
+  }
+
+label {
+    margin: 5px 20px !important;
+}
+
+.ui.button.reset {
+    margin-right: 10px;
+}
+
+.ui.message {
+    background-color: rgba(255, 248, 215, 0.507) !important;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#add-user:hover {
+    cursor: pointer;
+}

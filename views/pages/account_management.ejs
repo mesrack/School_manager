@@ -1,0 +1,126 @@
+<%- include ('../partials/header') %>
+
+        
+
+
+        <div class="ui center aligned grid">
+            <div class="column">
+                <table id="users" class="ui very basic collapsing celled table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Role</th>
+                            <% if(sessionUser.role === "admin") { %>
+                            <th>Password</th>
+                            <% } %>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% employees.forEach(function(employee) { %>
+                        <tr>
+                            <td>
+                                <h4 class="ui heaeder">
+                                    <a href="#">
+                                        <label for="">
+                                            <%= employee.name %>
+                                        </label>
+                                    </a>
+                                </h4>
+                            </td>
+                            <td>
+                                <label for="">
+                                    <%= employee.role %>
+                                </label>
+                            </td>
+                            <% if(sessionUser.role === "admin") { %>
+                            <td>
+                                <label for="">
+                                    <%= employee.password %>
+                                </label>
+                                    <button class="ui right floated red button reset " id= <%= employee.numTeacher %>>Reset</button>
+                            </td>
+                            <% } %>
+                            <td>
+                                <label for="">
+                                    <%= employee.status %>
+                                </label>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                <button id="add-user" class="ui primary button content">                                        
+                    <i class="plus circle icon"></i>
+                    Add user
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Modal add user -->
+        <div class="ui modal adduser">
+            <div class="content">
+                <form method="POST" id="form-user" class="ui form">
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Name</label>
+                            <input type="text" id="first-name" placeholder="First name">
+                        </div>
+                        <div class="field">
+                            <label>Last Name</label>
+                            <input type="text" id="last-name" placeholder="Last name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <input type="text" id="password" placeholder="Temporary password">
+                    </div>
+                    <div class="actions">
+                        <button type="submit" class="ui green approve labeled icon button">
+                            Approve
+                            <i class="checkmark icon"></i>
+                        </button>
+                        <div class="ui red cancel button">Cancel</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal change pass -->
+        <div class="ui modal pass">
+            <div class="content">
+                <form method="POST" id="form-pass" class="ui form pass">
+                    <p>Thanks to enter a new password :</p>
+                    <div id="div-pass-1" class="field">
+                        <input type="text" id="new-pass-1" name="new-password" placeholder="New password">
+                    </div>
+
+                    <div class="ui message" hidden>
+                        <div class="header message">password needs :</div>
+                        <ul id="error-message"></ul>
+                    </div>
+                    
+                    <p>And again :</p>
+                    <div class="field">
+                        <input type="text" id="new-pass-2" placeholder="New password">
+                    </div>
+                    <div class="actions">
+                        <button type="submit" id="button-pass" class="ui green approve labeled icon button" disabled>
+                            Approve
+                            <i class="checkmark icon"></i>
+                        </button>
+                        <div class="ui red cancel button">Cancel</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+    <%- include ('../partials/insert') %>
+
+    <link rel="stylesheet" href="/assets/stylesheets/account_management.css">
+    <script src="/assets/js/account_management.js"></script>
+
+
+<%- include ('../partials/footer') %>

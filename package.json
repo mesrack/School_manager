@@ -1,0 +1,37 @@
+{
+  "name": "school_manager",
+  "version": "0.1.0",
+  "description": "Project realise during my training of C++ langage. Now, i realise this project for the web support. I use NodeJs server side and jQuery / CSS client side.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mesrack/School_manager.git"
+  },
+  "author": "loïc <loicfer@yahoo.fr>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mesrack/School_manager/issues"
+  },
+  "homepage": "https://github.com/mesrack/School_manager#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "ejs": "~3.0.1",
+    "express": "~4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "jquery": "^3.4.1",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.2"
+  }
+}

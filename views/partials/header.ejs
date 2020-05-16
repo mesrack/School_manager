@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>School Management</title>
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/res/favicon-96x96.png">
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+
+        <div class="ui fixed inverted menu">
+            <div class="header item">
+                <span id="school-name">Louis Pasteur</span>
+            </div>
+            <div class="right menu">
+
+                <a href="/home" class="item">
+                    <i class="home icon"></i> Home
+                </a>
+                <a href="/support" class="item">Support</a>
+
+                <div class="item">
+                    <div class="ui transparent inverted icon input">
+                        <i class="search icon"></i>
+                        <input type="text" id="searchBar" placeholder="Search">
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown link item" id="dropdown" tabindex="0">
+                    <i class="user icon"></i>
+                    <span id="username"> <%= sessionUser.name %> Account </span>
+                    <i class="dropdown icon"></i>
+                    <div class="menu dropdown">
+                        <div class="item">
+                            <a href="/profile">View Profile</a>
+                        </div>
+                        <!-- if user is an admin or director -->
+                        <div class="item">
+                            <a href="/account_management">Account Management</a>
+                        </div>
+                        <div class="item">
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        

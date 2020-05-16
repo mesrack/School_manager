@@ -1,0 +1,32 @@
+
+
+.ui.segment {
+    background-color: rgba(44, 44, 44, 0.767);
+}
+
+.column {
+    margin-top: 120px;
+    max-width: 60%;
+    
+}
+
+form {
+    border-radius: 7px;
+    box-shadow: -1px 2px 5px 5px rgba(0, 0, 0, 0.616),
+                -1px 2px 20px rgba(167, 167, 167, 0.6) inset ;
+}
+
+#title-problem {
+    width: 320px;
+
+}
+
+.field {
+    margin: 30px 5px !important
+}
+
+label {
+    text-align: left;
+    color: rgb(255, 255, 255) !important;
+    font-size: 16px !important;
+}

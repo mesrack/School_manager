@@ -1,0 +1,58 @@
+
+ul {
+    list-style:none;
+    margin-left:0px;
+    padding-inline-start: 10px !important;
+}
+
+#school-stats {
+    font-style: italic;
+}
+
+li {
+    margin-bottom:15px;
+}
+
+.ui.grid.flag {
+    background-color: rgba(110, 110, 110, 0.63);
+    margin-top: 10px;
+    max-height: 200px;
+}
+
+
+
+.ui.doubling.stackable.grid {
+    margin: 5% auto auto 10%;
+    max-width: 80%;
+}
+
+.buttom .segment{
+    margin-bottom: 120px !important;
+    max-width: 75%;
+    min-height: 200px;
+}
+
+.text .segment {
+    background-color: rgba(110, 110, 110, 0.63);
+    height: 81%;
+}
+
+
+/* to delete */
+a .ui.segment {
+    color: white;
+}
+
+/* Replace by icon or image */
+#events{
+    background-color: rgb(206, 137, 255);
+}
+#students{
+    background-color: rgb(253, 151, 168);
+}
+#teachers{
+    background-color: rgb(87, 132, 255);
+}
+#classrooms{
+    background-color: rgb(100, 224, 100);
+}
